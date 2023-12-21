@@ -9,7 +9,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["./WebAPI.csproj", "WebAPI/"]
-COPY ["./Application/./Application.csproj", "Application/"]
+COPY ["/Application/./Application.csproj", "Application/"]
 COPY ["Core.Application/Core.Application.csproj", "Core.Application/"]
 COPY ["Core.CrossCuttingConcerns/Core.CrossCuttingConcerns.csproj", "Core.CrossCuttingConcerns/"]
 COPY ["Core.Persistence/Core.Persistence.csproj", "Core.Persistence/"]
