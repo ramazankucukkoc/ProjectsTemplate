@@ -9,7 +9,8 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["./WebAPI.csproj", "WebAPI/"]
-COPY ["Core.Application.csproj", "Core.Application/"]
+COPY ["Application/Application.csproj", "Application/"]
+COPY ["Core.Application/Core.Application.csproj", "Core.Application/"]
 COPY ["Core.CrossCuttingConcerns/Core.CrossCuttingConcerns.csproj", "Core.CrossCuttingConcerns/"]
 COPY ["Core.Persistence/Core.Persistence.csproj", "Core.Persistence/"]
 COPY ["Core.Domain/Core.Domain.csproj", "Core.Domain/"]
@@ -18,8 +19,6 @@ COPY ["Core.Mailings/Core.Mailings.csproj", "Core.Mailings/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
 COPY ["Persistence/Persistence.csproj", "Persistence/"]
-COPY ["./Application.csproj", "Application/"]
-
 RUN dotnet restore "./WebAPI/./WebAPI.csproj"
 COPY . .
 WORKDIR "/src/WebAPI"
