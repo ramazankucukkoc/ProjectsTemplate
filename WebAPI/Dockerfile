@@ -7,8 +7,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
-#WORKDIR /src
-COPY ["./WebAPI.csproj", "WebAPI/"]
+WORKDIR /src
+COPY ["WebAPI/WebAPI.csproj", "WebAPI/"]
 COPY ["Application/Application.csproj", "Application/"]
 COPY ["Core.Application/Core.Application.csproj", "Core.Application/"]
 COPY ["Core.CrossCuttingConcerns/Core.CrossCuttingConcerns.csproj", "Core.CrossCuttingConcerns/"]
@@ -31,4 +31,5 @@ RUN dotnet publish "./WebAPI.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY WebAPI.pfx .
 ENTRYPOINT ["dotnet", "WebAPI.dll"]
