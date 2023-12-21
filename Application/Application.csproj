@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Baskets\Queries\GetByIdBasket\" />
+    <Folder Include="Features\Baskets\Queries\GetByUserIdBasket\" />
+    <Folder Include="Features\Cities\Queries\" />
+    <Folder Include="Features\Countries\Queries\" />
+    <Folder Include="Features\Countries\Validator\" />
+    <Folder Include="Features\CreditCards\Profiles\" />
+    <Folder Include="Features\CreditCards\Queries\" />
+    <Folder Include="Features\CreditCards\Validator\" />
+    <Folder Include="Features\CustomersAddress\Command\" />
+    <Folder Include="Features\CustomersAddress\Dtos\" />
+    <Folder Include="Features\CustomersAddress\Profile\" />
+    <Folder Include="Features\CustomersAddress\Queries\" />
+    <Folder Include="Features\CustomersAddress\Rules\" />
+    <Folder Include="Features\CustomersAddress\Validator\" />
+    <Folder Include="Features\Departmans\Profile\" />
+    <Folder Include="Features\Departmans\Queries\" />
+    <Folder Include="Features\Departmans\Validator\" />
+    <Folder Include="Features\Favorites\Validator\" />
+    <Folder Include="Features\Invoices\Profile\" />
+    <Folder Include="Features\Invoices\Queries\" />
+    <Folder Include="Features\Invoices\Rules\" />
+    <Folder Include="Features\OperationClaims\Commands\" />
+    <Folder Include="Features\OperationClaims\Dtos\" />
+    <Folder Include="Features\OperationClaims\Profiles\" />
+    <Folder Include="Features\OperationClaims\Queries\" />
+    <Folder Include="Features\OrderDetails\Command\" />
+    <Folder Include="Features\OrderDetails\Dtos\" />
+    <Folder Include="Features\OrderDetails\Profile\" />
+    <Folder Include="Features\OrderDetails\Queries\" />
+    <Folder Include="Features\OrderDetails\Rules\" />
+    <Folder Include="Features\OrderDetails\Validator\" />
+    <Folder Include="Features\Orders\Constants\" />
+    <Folder Include="Features\Orders\Queries\" />
+    <Folder Include="Features\ParentCategories\Queries\" />
+    <Folder Include="Features\Personels\Queries\" />
+    <Folder Include="Features\ProductBranchs\Queries\" />
+    <Folder Include="Features\ProductBranchs\Rules\" />
+    <Folder Include="Features\ProductBranchs\Validator\" />
+    <Folder Include="Features\ProductComments\Queries\" />
+    <Folder Include="Features\ProductComments\Validator\" />
+    <Folder Include="Features\Sales\Profile\" />
+    <Folder Include="Features\Sales\Queries\" />
+    <Folder Include="Features\Stocks\Queries\" />
+    <Folder Include="Features\Stocks\Rules\" />
+    <Folder Include="Features\UserComments\Command\" />
+    <Folder Include="Features\UserComments\Dtos\" />
+    <Folder Include="Features\UserComments\Profile\" />
+    <Folder Include="Features\UserComments\Queries\" />
+    <Folder Include="Features\UserComments\Rules\" />
+    <Folder Include="Features\UserComments\Validator\" />
+    <Folder Include="Features\Users\Models\" />
+    <Folder Include="Services\FavoriteService\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.6" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="QRCoder" Version="1.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Application\Core.Application.csproj" />
+    <ProjectReference Include="..\Core.Mailings\Core.Mailings.csproj" />
+    <ProjectReference Include="..\Core.Persistence\Core.Persistence.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+</Project>
