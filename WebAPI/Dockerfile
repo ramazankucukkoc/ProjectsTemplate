@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
-WORKDIR /src
+#WORKDIR /src
 COPY ["./WebAPI.csproj", "WebAPI/"]
 COPY ["/Application.csproj", "Application/"]
 COPY ["Core.Application/Core.Application.csproj", "Core.Application/"]
