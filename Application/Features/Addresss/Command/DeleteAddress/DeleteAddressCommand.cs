@@ -10,7 +10,7 @@ using MediatR;
 
 namespace Application.Features.Addresss.Command.DeleteAddress
 {
-    public class DeleteAddressCommand : IRequest<DeleteAddressDto>, ISecuredRequest, ILoggableRequest
+    public class DeleteAddressCommand : IRequest<DeleteAddressDto>, ISecuredRequest
     {
         public int Id { get; set; }
 

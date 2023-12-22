@@ -12,7 +12,7 @@ using MediatR;
 
 namespace Application.Features.Auths.Command.Register
 {
-    public class RegisterCommand : IRequest<RegisteredDto>, ILoggableRequest
+    public class RegisterCommand : IRequest<RegisteredDto>
     {
         public UserForRegisterDto UserForRegisterDto { get; set; }
         public string IpAddress { get; set; }

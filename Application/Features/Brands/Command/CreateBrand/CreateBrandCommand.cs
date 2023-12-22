@@ -8,7 +8,7 @@ using MediatR;
 
 namespace Application.Features.Brands.Command.CreateBrand
 {
-    public sealed class CreateBrandCommand : IRequest<CreateBrandDto>,ILoggableRequest
+    public sealed class CreateBrandCommand : IRequest<CreateBrandDto>
     {
         public string Name { get; set; }
 

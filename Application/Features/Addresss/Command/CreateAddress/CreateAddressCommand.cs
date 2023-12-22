@@ -4,13 +4,12 @@ using Application.Services.Repositories;
 using AutoMapper;
 using Core.Application.Constants;
 using Core.Application.Pipelines.Authorization;
-using Core.Application.Pipelines.Logging;
 using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.Addresss.Command.CreateAddress
 {
-    public class CreateAddressCommand : IRequest<CreateAddressDto>, ISecuredRequest, ILoggableRequest
+    public class CreateAddressCommand : IRequest<CreateAddressDto>, ISecuredRequest
     {
         public int UserId { get; set; }
         public int CityId { get; set; }

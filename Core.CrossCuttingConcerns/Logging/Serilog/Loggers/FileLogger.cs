@@ -13,7 +13,8 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
         {
             _configuration = configuration;
 
-            FileConfiguration logConfig = configuration.GetConfig<FileConfiguration>("SeriLogConfigurations:FileLogConfiguration");
+            FileConfiguration logConfig = configuration.GetSection("SeriLogConfigurations:FileLogConfiguration")
+                                                      .Get<FileConfiguration>();
 
             string logFilePath = string.Format("{0}{1}", Directory.GetCurrentDirectory() + logConfig.FolderPath, ".txt");
             Logger = new LoggerConfiguration()

@@ -10,7 +10,7 @@ using MediatR;
 
 namespace Application.Features.Addresss.Command.UpdateAddress
 {
-    public class UpdateAddressCommand : IRequest<UpdateAddressDto>, ISecuredRequest, ILoggableRequest
+    public class UpdateAddressCommand : IRequest<UpdateAddressDto>, ISecuredRequest
     {
         public int Id { get; set; }
         public int UserId { get; set; }

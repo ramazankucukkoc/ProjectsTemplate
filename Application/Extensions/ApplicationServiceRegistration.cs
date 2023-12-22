@@ -90,7 +90,7 @@ namespace Application.Extensions
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionScopeBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehavior<,>));
 
-            services.AddScoped<LoggerServiceBase, MsSqlLogger>();
+           //  services.AddScoped<LoggerServiceBase, FileLogger>();
             //services.AddTransient<IMessageBrokerHelper, MqQueueHelper>();
 
             //-----------------Business Services----------------------
