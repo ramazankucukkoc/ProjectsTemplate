@@ -12,7 +12,7 @@ using MediatR;
 
 namespace Application.Features.Auths.Command.Register
 {
-    public class RegisterCommand : IRequest<RegisteredDto>,ILoggableRequest
+    public class RegisterCommand : IRequest<RegisteredDto>, ILoggableRequest
     {
         public UserForRegisterDto UserForRegisterDto { get; set; }
         public string IpAddress { get; set; }
@@ -35,8 +35,6 @@ namespace Application.Features.Auths.Command.Register
             public async Task<RegisteredDto> Handle(RegisterCommand request, CancellationToken cancellationToken)
             {
                 await _authBusinessRules.UserEmailShouldBeActive(request.UserForRegisterDto.Email);
-
-
                 byte[] passwordHash, passwordSalt;
                 HashingHelper.CreatePasswordHash(request.UserForRegisterDto.Password, out passwordHash, out passwordSalt);
                 User newUser = new()
@@ -59,14 +57,14 @@ namespace Application.Features.Auths.Command.Register
                     RefreshToken = addedRefreshToken
                 };
 
-               await _mailService.SendMailAsync(new Mail
-                {
-                    ToEmail = request.UserForRegisterDto.Email,
-                    ToFullName = $"{request.UserForRegisterDto.FirstName} ${request.UserForRegisterDto.LastName}",
-                    Subject = "Register Your Email - ECommerce - Ramazan",
-                    TextBody = "Teşekkürler",
-                    HtmlBody = "Kaydetme işlemerini<strong> başarılı şekilde tamamlandı.</strong>"
-                });
+                //await _mailService.SendMailAsync(new Mail
+                //{
+                //    ToEmail = request.UserForRegisterDto.Email,
+                //    ToFullName = $"{request.UserForRegisterDto.FirstName} ${request.UserForRegisterDto.LastName}",
+                //    Subject = "Register Your Email - ECommerce - Ramazan",
+                //    TextBody = "Teşekkürler",
+                //    HtmlBody = "Kaydetme işlemerini<strong> başarılı şekilde tamamlandı.</strong>"
+                //});
                 return registeredDto;
             }
         }

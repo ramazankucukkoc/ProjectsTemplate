@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Persistence.Extensions;
+using WebAPI.Middleware;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -31,7 +32,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
     };
 });
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(
@@ -44,7 +44,7 @@ builder.Services.AddSwaggerGen(opt =>
     opt.SwaggerDoc("v2", new OpenApiInfo
     {
         Version = "v2",
-        Title = "RAMAZAN KÜÇÜKKOÇ",
+        Title = "RAMAZAN KUCUKKOC",
         Description = "API Documentation using Swagger"
     });
     opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -69,12 +69,12 @@ builder.Services.AddSwaggerGen(opt =>
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsProduction())
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v2/swagger.json", "Ramazan KÜÇÜKKOÇ E-COMMERCE");
+        c.SwaggerEndpoint("/swagger/v2/swagger.json", "Ramazan KUCUKKOC E-COMMERCE");
     });
 }
 
@@ -92,6 +92,5 @@ app.UseAuthorization();
 //app.UseMiddleware<ApiKeyMiddleware>();
 
 app.MapControllers();
-
 
 app.Run();
